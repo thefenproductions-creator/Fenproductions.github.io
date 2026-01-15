@@ -9,12 +9,12 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 :root{
-  --bg:#050807;
-  --panel:#0c1512;
-  --green:#2b7a57;
+  --bg:#040706;
+  --panel:#0e1714;
+  --green:#2f7f5b;
   --red:#7a0b0b;
   --navy:#0b1220;
-  --text:#eaeaea;
+  --text:#f0f0f0;
 }
 
 *{box-sizing:border-box;}
@@ -24,20 +24,25 @@ body{
   background:linear-gradient(180deg,var(--bg),var(--navy));
   color:var(--text);
   font-family:'VT323', monospace;
-  font-size:20px;
-  line-height:1.65;
-  cursor:🔪;
+  font-size:22px;
+  line-height:1.8;
+  text-align:center;
+
+  cursor: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'>\
+<path d='M4 28 L14 18 L12 16 L22 2 L30 10 L16 20 L14 18 L6 30 Z' fill='%238b0000' stroke='black' stroke-width='1'/>\
+</svg>") 6 26, auto;
 }
 
-/* Subtle VHS scanlines */
+/* Subtle VHS texture */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   background:repeating-linear-gradient(
     0deg,
-    rgba(255,255,255,0.025),
-    rgba(255,255,255,0.025) 1px,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 1px,
     transparent 1px,
     transparent 4px
   );
@@ -46,12 +51,218 @@ body::before{
 }
 
 header{
-  text-align:center;
-  padding:3rem 1rem 2rem;
+  padding:4rem 1rem 2.5rem;
   border-bottom:2px solid var(--red);
 }
 
 header h1{
-  font-size:4.5rem;
+  font-size:5rem;
   margin:0;
-  color:var(-
+  color:var(--green);
+  letter-spacing:4px;
+}
+
+header p{
+  max-width:760px;
+  margin:1.5rem auto 2.5rem;
+  font-size:2rem;
+}
+
+.social-main{
+  display:flex;
+  justify-content:center;
+  gap:2rem;
+  flex-wrap:wrap;
+}
+
+.social-main a{
+  padding:1.4rem 3.5rem;
+  background:var(--green);
+  color:#000;
+  text-decoration:none;
+  font-size:2.2rem;
+  border-radius:8px;
+  border:2px solid #000;
+}
+
+.social-main a:hover{
+  background:var(--red);
+  color:#fff;
+}
+
+.status{
+  padding:1.25rem;
+  background:#070c0b;
+  border-top:1px solid var(--green);
+  border-bottom:1px solid var(--green);
+  font-size:1.6rem;
+  letter-spacing:1px;
+}
+
+section{
+  padding:4rem 1.5rem;
+}
+
+.container{
+  max-width:950px;
+  margin:0 auto;
+}
+
+.box{
+  background:var(--panel);
+  border:1px solid #111;
+  padding:2.5rem;
+  margin-bottom:3rem;
+}
+
+h2{
+  font-size:2.8rem;
+  margin-bottom:1.25rem;
+  color:var(--green);
+}
+
+footer{
+  padding:2.5rem 1rem;
+  border-top:1px solid #111;
+}
+
+.faith{
+  font-size:1.6rem;
+  opacity:0.65;
+  margin-top:1.25rem;
+}
+
+/* BLOOD EFFECT */
+#blood{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:0;
+  pointer-events:none;
+  z-index:999;
+}
+
+.drip{
+  position:absolute;
+  top:-90px;
+  width:30px;
+  height:100px;
+  background:linear-gradient(#8b0000,#2a0000);
+  border-radius:0 0 18px 18px;
+  animation:fall 4.5s ease-in forwards;
+}
+
+@keyframes fall{
+  to{transform:translateY(120vh);}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>FEN PRODUCTIONS</h1>
+  <p>
+    Independent horror. Realistic. Grounded.<br>
+    Stories where fans are heard.
+  </p>
+
+  <div class="social-main">
+    <a href="https://www.tiktok.com/@fenproductions3?_r=1&_t=ZT-935XWQHhzHj" target="_blank">TikTok</a>
+    <a href="https://youtube.com/@thefenproductions?si=cKjPF0uVhvxp2qCd" target="_blank">YouTube</a>
+  </div>
+</header>
+
+<div class="status">
+  Corporeal — In Development · Merch in Development
+</div>
+
+<section>
+<div class="container">
+
+<div class="box">
+<h2>About Fen Productions</h2>
+<p>
+Fen Productions is a small independent horror team made up of an aspiring director/writer
+and an aspiring actor.
+</p>
+<p>
+Our focus is grounded, realistic horror — fear that feels possible.
+</p>
+<p>
+Two horror fans trying to live a dream.
+</p>
+</div>
+
+<div class="box">
+<h2>Corporeal</h2>
+<p><em>“It’s what you get when you separate Supernatural into super natural.”</em></p>
+<p>
+A group of teens hear about a local murder case and explore the crime scene.
+</p>
+<p>
+Curiosity turns into survival.
+No paranormal explanations.
+Just reality.
+</p>
+</div>
+
+<div class="box">
+<h2>FenGallow</h2>
+<p>
+A group travels deep into swamp land.
+</p>
+<p>
+Isolation settles in.
+Conversations sharpen.
+Something begins to close in.
+</p>
+</div>
+
+<div class="box">
+<h2>Casting · Feedback · Work</h2>
+<p>
+Casting calls are always open.
+</p>
+<p>
+If you want to be in a film, suggest ideas, or reach out professionally:
+</p>
+<p style="font-size:2.4rem;color:var(--green);">
+TheFenProductions@gmail.com
+</p>
+<p>
+We are also seeking work as a Production Assistant.
+</p>
+</div>
+
+</div>
+</section>
+
+<footer>
+  <span id="trigger" style="opacity:0.35;cursor:pointer;">signal lost</span>
+  <div class="faith">Ο Ιησούς Χριστός ζει. ☦️</div>
+  <p>© Fen Productions</p>
+</footer>
+
+<div id="blood"></div>
+
+<script>
+document.getElementById('trigger').onclick=()=>{
+  const b=document.getElementById('blood');
+  b.innerHTML='';
+  b.style.height='100vh';
+  const drops=Math.floor(window.innerWidth/65);
+  for(let i=0;i<drops;i++){
+    const d=document.createElement('div');
+    d.className='drip';
+    d.style.left=Math.random()*100+'%';
+    d.style.animationDelay=Math.random()*0.6+'s';
+    b.appendChild(d);
+  }
+  setTimeout(()=>b.style.height='0',5000);
+};
+</script>
+
+</body>
+</html>
