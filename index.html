@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fen Productions</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=VT323&family=Special+Elite&display=swap');
+
+    :root {
+      --bg: #030706;
+      --swamp: #143b2e;
+      --moss: #1f5a44;
+      --blood: #7a0b0b;
+      --navy: #0b1624;
+      --white: #e2e2e2;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, var(--bg), var(--navy));
+      color: var(--white);
+      font-family: 'VT323', monospace;
+      font-size: 1.3rem;
+      overflow-x: hidden;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M4 28 L14 18 L12 16 L22 2 L30 10 L16 20 L14 18 L6 30 Z" fill="%237a0b0b" stroke="black" stroke-width="1"/></svg>') 4 28, auto;
+    }
+
+    header {
+      padding: 2.8rem 1rem 2.2rem;
+      text-align: center;
+      border-bottom: 1px solid var(--swamp);
+      background: radial-gradient(circle at top, var(--navy), var(--bg));
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      letter-spacing: 3px;
+      margin-bottom: 0.5rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.6rem;
+      padding: 1rem;
+      background: rgba(10, 20, 18, 0.8);
+      border-bottom: 1px solid var(--swamp);
+    }
+
+    nav a {
+      color: var(--moss);
+      text-decoration: none;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover {
+      color: var(--blood);
+    }
+
+    section {
+      padding: 2.4rem 1.6rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.8rem;
+      color: var(--moss);
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      margin-top: 1.2rem;
+      color: var(--moss);
+    }
+
+    .box {
+      background: rgba(8, 16, 14, 0.85);
+      border-left: 3px solid var(--swamp);
+      padding: 1.8rem;
+      margin-top: 1.2rem;
+      box-shadow: 0 0 18px rgba(10, 40, 30, 0.3);
+    }
+
+    .links a {
+      display: inline-block;
+      margin: 0.8rem 1.2rem 0 0;
+      padding: 0.5rem 0.9rem;
+      font-size: 1.6rem;
+      color: var(--moss);
+      border: 1px solid var(--swamp);
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      color: var(--blood);
+      border-color: var(--blood);
+    }
+
+    .email-highlight {
+      display: inline-block;
+      margin-top: 0.8rem;
+      padding: 0.6rem 1rem;
+      font-size: 1.9rem;
+      color: var(--white);
+      background: rgba(122, 11, 11, 0.25);
+      border: 1px solid var(--blood);
+      letter-spacing: 1px;
+    }
+
+    footer {
+      position: relative;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 1rem;
+      border-top: 1px solid var(--swamp);
+      background: rgba(5, 10, 10, 0.9);
+    }
+
+    .small-faith {
+      position: absolute;
+      right: 1rem;
+      bottom: 0.6rem;
+      font-size: 0.7rem;
+      opacity: 0.35;
+    }
+
+    #blood-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      pointer-events: none;
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    .drip {
+      position: absolute;
+      top: -40px;
+      width: 18px;
+      height: 40px;
+      background: linear-gradient(#7a0b0b, #4d0707);
+      border-radius: 0 0 10px 10px;
+      animation: drip 2.5s ease-in forwards;
+    }
+
+    @keyframes drip {
+      to { transform: translateY(120vh); }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="images/logo.png" alt="Fen Productions Logo" style="max-width:200px;margin-bottom:1rem;">
+  <h1>FEN PRODUCTIONS</h1>
+  <p><strong>Stories built with the audience, not above them.</strong></p>
+</header>
+
+<nav>
+  <a href="#about">ABOUT</a>
+  <a href="#projects">PROJECTS</a>
+  <a href="#casting">CASTING</a>
+  <a href="#contact">CONTACT</a>
+</nav>
+
+<section id="about" style="background:url('images/fog2.jpg') center/cover no-repeat;">
+  <div class="box">
+    <p><strong>Fen Productions</strong> is named after fenland — swamp ground. Wet earth. Places that look empty but are alive beneath the surface.</p>
+    <p>We’re a small indie horror team — an aspiring director/writer and an aspiring actor — focused on realistic, grounded horror.</p>
+    <p><strong>Two horror fans trying to live a dream — where fans are heard.</strong></p>
+  </div>
+</section>
+
+<img src="images/fog3.jpg" style="width:100%;opacity:0.75;">
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="box">
+    <h3>Corporeal</h3>
+    <p><em>“What you get when you separate Supernatural into super natural.”</em></p>
+    <p>A group of teens explore a wooded murder site. Curiosity turns into survival.</p>
+    <p>Unsettling realism. No escape into the unreal.</p>
+
+    <h3>FenGallow</h3>
+    <p>A horror film set deep in swamp land. Isolation and rising hostility push a group toward collapse as something closes in.</p>
+
+    <p><strong>Merch in development.</strong></p>
+    <p><strong>Future GoFundMe planned.</strong></p>
+  </div>
+</section>
+
+<section id="casting">
+  <h2>Casting & Feedback</h2>
+  <div class="box">
+    <p><strong>Casting calls are always open.</strong></p>
+    <p>Email if you want to be in a film or suggest ideas:</p>
+    <p class="email-highlight">TheFenProductions@gmail.com</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact & Social</h2>
+  <div class="box">
+    <p class="email-highlight">TheFenProductions@gmail.com</p>
+    <div class="links">
+      <a href="https://www.tiktok.com/@fenproductions3?_r=1&_t=ZT-935XWQHhzHj" target="_blank">TikTok</a>
+      <a href="https://youtube.com/@thefenproductions" target="_blank">YouTube</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span id="secret-blood" style="position:absolute;left:1rem;bottom:0.6rem;font-size:0.7rem;opacity:0.3;cursor:pointer;">signal lost</span>
+  <p>© Fen Productions — Independent Horror</p>
+  <div class="small-faith">Ο Ιησούς Χριστός ζει. ☦️</div>
+</footer>
+
+<div id="blood-overlay"></div>
+
+<script>
+  document.getElementById('secret-blood').addEventListener('click', () => {
+    const overlay = document.getElementById('blood-overlay');
+    overlay.innerHTML = '';
+    const count = Math.max(10, Math.floor(window.innerWidth / 90));
+    for (let i = 0; i < count; i++) {
+      const d = document.createElement('div');
+      d.className = 'drip';
+      d.style.left = Math.random() * 100 + '%';
+      d.style.animationDelay = Math.random() * 0.6 + 's';
+      overlay.appendChild(d);
+    }
+    overlay.style.height = '100vh';
+    setTimeout(() => overlay.style.height = '0', 3000);
+  });
+</script>
+
+</body>
+</html>
