@@ -1,247 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fen Productions</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fen Productions</title>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=VT323&family=Special+Elite&display=swap');
+<style>
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
-    :root {
-      --bg: #030706;
-      --swamp: #143b2e;
-      --moss: #1f5a44;
-      --blood: #7a0b0b;
-      --navy: #0b1624;
-      --white: #e2e2e2;
-    }
+:root{
+  --bg:#040706;
+  --swamp:#1f6f5a;
+  --deep:#07131f;
+  --blood:#7a0000;
+  --text:#e6e6e6;
+}
 
-    * { box-sizing: border-box; }
+*{box-sizing:border-box}
 
-    body {
-      margin: 0;
-      background: linear-gradient(180deg, var(--bg), var(--navy));
-      color: var(--white);
-      font-family: 'VT323', monospace;
-      font-size: 1.3rem;
-      overflow-x: hidden;
-      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M4 28 L14 18 L12 16 L22 2 L30 10 L16 20 L14 18 L6 30 Z" fill="%237a0b0b" stroke="black" stroke-width="1"/></svg>') 4 28, auto;
-    }
+body{
+  margin:0;
+  font-family:'VT323',monospace;
+  color:var(--text);
+  background:linear-gradient(180deg,var(--bg),var(--deep));
+  cursor:url("data:image/svg+xml;utf8,
+  <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'>
+    <text x='0' y='24' font-size='24'>🔪</text>
+  </svg>") 8 24, auto;
+}
 
-    header {
-      padding: 2.8rem 1rem 2.2rem;
-      text-align: center;
-      border-bottom: 1px solid var(--swamp);
-      background: radial-gradient(circle at top, var(--navy), var(--bg));
-    }
+/* VHS scanlines */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.035),
+    rgba(255,255,255,0.035) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events:none;
+  z-index:1;
+}
 
-    header h1 {
-      font-size: 2.8rem;
-      letter-spacing: 3px;
-      margin-bottom: 0.5rem;
-    }
+header{
+  text-align:center;
+  padding:2.2rem 1rem;
+  border-bottom:2px solid var(--blood);
+}
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 1.6rem;
-      padding: 1rem;
-      background: rgba(10, 20, 18, 0.8);
-      border-bottom: 1px solid var(--swamp);
-    }
+/* SOCIAL BUTTON */
+.social-wrap{
+  position:relative;
+  display:inline-block;
+}
 
-    nav a {
-      color: var(--moss);
-      text-decoration: none;
-      font-size: 1.5rem;
-      letter-spacing: 1px;
-    }
+.social-btn{
+  font-size:1.9rem;
+  padding:0.6rem 1.4rem;
+  background:rgba(31,111,90,0.15);
+  border:1px solid var(--swamp);
+  color:var(--swamp);
+  cursor:pointer;
+}
 
-    nav a:hover {
-      color: var(--blood);
-    }
+.social-btn:hover{
+  background:rgba(122,0,0,0.25);
+  color:#b30000;
+}
 
-    section {
-      padding: 2.4rem 1.6rem;
-    }
+.social-menu{
+  display:none;
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  background:#040706;
+  border:1px solid var(--swamp);
+  margin-top:0.5rem;
+  z-index:10;
+}
 
-    h2 {
-      font-size: 2rem;
-      letter-spacing: 2px;
-      margin-bottom: 0.8rem;
-      color: var(--moss);
-    }
+.social-menu a{
+  display:block;
+  padding:0.7rem 1.4rem;
+  color:var(--text);
+  text-decoration:none;
+  font-size:1.5rem;
+}
 
-    h3 {
-      font-size: 1.6rem;
-      margin-top: 1.2rem;
-      color: var(--moss);
-    }
+.social-menu a:hover{
+  background:rgba(122,0,0,0.3);
+}
 
-    .box {
-      background: rgba(8, 16, 14, 0.85);
-      border-left: 3px solid var(--swamp);
-      padding: 1.8rem;
-      margin-top: 1.2rem;
-      box-shadow: 0 0 18px rgba(10, 40, 30, 0.3);
-    }
+.social-wrap:hover .social-menu{
+  display:block;
+}
 
-    .links a {
-      display: inline-block;
-      margin: 0.8rem 1.2rem 0 0;
-      padding: 0.5rem 0.9rem;
-      font-size: 1.6rem;
-      color: var(--moss);
-      border: 1px solid var(--swamp);
-      text-decoration: none;
-    }
+nav{
+  display:flex;
+  justify-content:center;
+  gap:1.8rem;
+  padding:1.2rem;
+  border-bottom:1px solid #123a31;
+}
 
-    .links a:hover {
-      color: var(--blood);
-      border-color: var(--blood);
-    }
+nav a{
+  font-size:1.55rem;
+  color:var(--swamp);
+  text-decoration:none;
+}
+nav a:hover{color:var(--blood)}
 
-    .email-highlight {
-      display: inline-block;
-      margin-top: 0.8rem;
-      padding: 0.6rem 1rem;
-      font-size: 1.9rem;
-      color: var(--white);
-      background: rgba(122, 11, 11, 0.25);
-      border: 1px solid var(--blood);
-      letter-spacing: 1px;
-    }
+section{
+  padding:2.6rem 1.6rem;
+  max-width:880px;
+  margin:auto;
+}
 
-    footer {
-      position: relative;
-      text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 1rem;
-      border-top: 1px solid var(--swamp);
-      background: rgba(5, 10, 10, 0.9);
-    }
+.box{
+  background:rgba(10,15,20,0.92);
+  border:1px solid #123a31;
+  padding:2.1rem;
+  box-shadow:0 0 38px rgba(15,47,38,0.45);
+}
 
-    .small-faith {
-      position: absolute;
-      right: 1rem;
-      bottom: 0.6rem;
-      font-size: 0.7rem;
-      opacity: 0.35;
-    }
+h2{font-size:2.4rem}
+p{font-size:1.6rem; line-height:1.55}
 
-    #blood-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 0;
-      pointer-events: none;
-      z-index: 9999;
-      overflow: hidden;
-    }
+footer{
+  text-align:center;
+  padding:3.2rem 1rem 4.6rem;
+  border-top:1px solid #123a31;
+}
 
-    .drip {
-      position: absolute;
-      top: -40px;
-      width: 18px;
-      height: 40px;
-      background: linear-gradient(#7a0b0b, #4d0707);
-      border-radius: 0 0 10px 10px;
-      animation: drip 2.5s ease-in forwards;
-    }
+.faith{
+  font-size:1.5rem;
+  opacity:0.6;
+  margin-top:2.3rem;
+}
 
-    @keyframes drip {
-      to { transform: translateY(120vh); }
-    }
-  </style>
+/* BLOOD EFFECT */
+#blood-overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:0;
+  pointer-events:none;
+  z-index:9999;
+  overflow:hidden;
+}
+
+.drip{
+  position:absolute;
+  top:-140px;
+  background:linear-gradient(#8f0000,#3a0000);
+  border-radius:0 0 18px 18px;
+  animation:fall linear forwards;
+}
+
+@keyframes fall{
+  0%{
+    transform:translateY(0) translateX(0);
+  }
+  100%{
+    transform:translateY(160vh) translateX(calc(-15px + 30px * var(--sway)));
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <img src="images/logo.png" alt="Fen Productions Logo" style="max-width:200px;margin-bottom:1rem;">
-  <h1>FEN PRODUCTIONS</h1>
-  <p><strong>Stories built with the audience, not above them.</strong></p>
+  <div class="social-wrap">
+    <div class="social-btn">FOLLOW</div>
+    <div class="social-menu">
+      <a href="https://www.youtube.com/@thefenproductions" target="_blank">YouTube</a>
+      <a href="https://www.tiktok.com/@fenproductions3" target="_blank">TikTok</a>
+    </div>
+  </div>
+
+  <p style="margin-top:1.6rem;font-size:1.65rem;">
+    <strong>Independent horror. Stories where fans are heard.</strong>
+  </p>
+
+  <p style="font-size:1.45rem;">
+    Contact: <strong>TheFenProductions@gmail.com</strong>
+  </p>
 </header>
 
 <nav>
   <a href="#about">ABOUT</a>
   <a href="#projects">PROJECTS</a>
   <a href="#casting">CASTING</a>
-  <a href="#contact">CONTACT</a>
 </nav>
 
-<section id="about" style="background:url('images/fog2.jpg') center/cover no-repeat;">
+<section id="about">
   <div class="box">
-    <p><strong>Fen Productions</strong> is named after fenland — swamp ground. Wet earth. Places that look empty but are alive beneath the surface.</p>
-    <p>We’re a small indie horror team — an aspiring director/writer and an aspiring actor — focused on realistic, grounded horror.</p>
-    <p><strong>Two horror fans trying to live a dream — where fans are heard.</strong></p>
+    <h2>About</h2>
+    <p>
+      Fen Productions is a small indie horror team —
+      an aspiring director/writer and an aspiring actor.
+    </p>
+    <p>
+      We focus on grounded, realistic horror and tension-driven stories.
+      Two horror fans trying to live a dream.
+    </p>
   </div>
 </section>
 
-<img src="images/fog3.jpg" style="width:100%;opacity:0.75;">
-
 <section id="projects">
-  <h2>Projects</h2>
   <div class="box">
-    <h3>Corporeal</h3>
+    <h2>Corporeal</h2>
     <p><em>“What you get when you separate Supernatural into super natural.”</em></p>
-    <p>A group of teens explore a wooded murder site. Curiosity turns into survival.</p>
-    <p>Unsettling realism. No escape into the unreal.</p>
+    <p>
+      A group of teens explore the site of a real murder.
+      No ghosts. No myths. Just human fear.
+    </p>
 
-    <h3>FenGallow</h3>
-    <p>A horror film set deep in swamp land. Isolation and rising hostility push a group toward collapse as something closes in.</p>
+    <h2>FenGallow</h2>
+    <p>
+      Deep in swamp land, hatred brews within a group
+      as a killer closes in.
+    </p>
 
-    <p><strong>Merch in development.</strong></p>
-    <p><strong>Future GoFundMe planned.</strong></p>
+    <p><strong>Merch in development · Future GoFundMe planned</strong></p>
   </div>
 </section>
 
 <section id="casting">
-  <h2>Casting & Feedback</h2>
   <div class="box">
-    <p><strong>Casting calls are always open.</strong></p>
-    <p>Email if you want to be in a film or suggest ideas:</p>
-    <p class="email-highlight">TheFenProductions@gmail.com</p>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact & Social</h2>
-  <div class="box">
-    <p class="email-highlight">TheFenProductions@gmail.com</p>
-    <div class="links">
-      <a href="https://www.tiktok.com/@fenproductions3?_r=1&_t=ZT-935XWQHhzHj" target="_blank">TikTok</a>
-      <a href="https://youtube.com/@thefenproductions" target="_blank">YouTube</a>
-    </div>
+    <h2>Casting & Feedback</h2>
+    <p>
+      Casting calls are always open.
+      Want to be in a film or suggest ideas?
+      Email <strong>TheFenProductions@gmail.com</strong>.
+    </p>
   </div>
 </section>
 
 <footer>
-  <span id="secret-blood" style="position:absolute;left:1rem;bottom:0.6rem;font-size:0.7rem;opacity:0.3;cursor:pointer;">signal lost</span>
-  <p>© Fen Productions — Independent Horror</p>
-  <div class="small-faith">Ο Ιησούς Χριστός ζει. ☦️</div>
+  <span id="blood-trigger" style="opacity:0.35;cursor:pointer;">signal lost</span>
+  <p>© Fen Productions</p>
+  <div class="faith">Ο Ιησούς Χριστός ζει. ☦️</div>
 </footer>
 
 <div id="blood-overlay"></div>
 
 <script>
-  document.getElementById('secret-blood').addEventListener('click', () => {
-    const overlay = document.getElementById('blood-overlay');
-    overlay.innerHTML = '';
-    const count = Math.max(10, Math.floor(window.innerWidth / 90));
-    for (let i = 0; i < count; i++) {
-      const d = document.createElement('div');
-      d.className = 'drip';
-      d.style.left = Math.random() * 100 + '%';
-      d.style.animationDelay = Math.random() * 0.6 + 's';
-      overlay.appendChild(d);
-    }
-    overlay.style.height = '100vh';
-    setTimeout(() => overlay.style.height = '0', 3000);
-  });
+document.getElementById("blood-trigger").addEventListener("click",()=>{
+  const overlay=document.getElementById("blood-overlay");
+  overlay.innerHTML="";
+  overlay.style.height="100vh";
+
+  const count=Math.floor(window.innerWidth/45);
+  for(let i=0;i<count;i++){
+    const d=document.createElement("div");
+    d.className="drip";
+    d.style.width=(12+Math.random()*28)+"px";
+    d.style.height=(90+Math.random()*160)+"px";
+    d.style.left=Math.random()*100+"%";
+    d.style.animationDuration=(3.2+Math.random()*3.5)+"s";
+    d.style.setProperty("--sway",Math.random());
+    overlay.appendChild(d);
+  }
+
+  setTimeout(()=>overlay.style.height="0",5200);
+});
 </script>
 
 </body>
 </html>
+
